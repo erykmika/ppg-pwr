@@ -35,49 +35,47 @@
 	\section{Moja "pierwsza" gra 2D}
 	Stworzenie przeze mnie gry w ramach tutorialu składało się z kroków, na które podzielony jest tutorial na stronie; najpierw
 	wstępnie skonfigurowałem projekt, utworzyłem scenę gracza (\emph{Player}), za pomocą kodu w języku GDScript wprowadziłem
-	logikę dla gracza. Podobne kroki powtórzyłem dla przeciwnika (\emph{Enemy}). Na końcu połączyłem całość w scenę \emph{main},
+	logikę dla gracza. Podobne kroki powtórzyłem dla przeciwnika (\emph{Mob}). Na końcu połączyłem całość w scenę \emph{main},
 	dodałem nakładki HUD (\emph{ang. Heads Up Display}) - w tym ilość punktów, przycisk startu gry. Efektem końcowym była trywialna gra,
 	w której gracz przemieszcza postać na planszy 2D unikając przeciwników pojawiających się w losowych punktach planszy.
 	Poprzez przerobienie tutorialu dowiedziałem się, jak łączy się komponenty takiego projektu w całość, przynajmniej na przykładzie małoskalowej gry.
-	Zwróciłem uwagę na sposób przekazywania informacji z jednej sceny do drugiej (emph{signals}) na przykładzie kolizji gracza i przeciwnika.
+	Zwróciłem uwagę na sposób przekazywania informacji z jednej sceny do drugiej (\emph{signals}) na przykładzie kolizji gracza i przeciwnika.
 	\subsection{Zrzuty ekranu z wykonanej pracy}
 	Wprowadziłem modyfikacje w stosunku do przykładu przedstawionego w tutorialu - wprowadziłem język polski.
+	\begin{center}
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[width=0.6\textwidth]{enemy_collision.png}
+			\caption{Określenie granic kolizji dla przeciwnika}
+		\end{figure}
+		\begin{figure}[htb]
+			\centering
+			\makebox[\textwidth][c]{\includegraphics[width=1.5\textwidth]{mob_path.png}}%
+			\caption{Podgląd na główną scenę w edytorze 2D wraz ze ściezką \emph{Mob}}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\makebox[\textwidth][c]{\includegraphics[width=1.5\textwidth]{code.png}}%
+			\caption{Fragment kodu GDScript głównej sceny gry}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\includegraphics[height=0.35\textheight]{get_ready.png}
+			\caption{Ekran rozgrzewający}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\includegraphics[height=0.35\textheight]{game1.png}
+			\caption{W trakcie gry}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\includegraphics[height=0.35\textheight]{game_over.png}
+			\caption{"Game over"}
+		\end{figure}
+	\end{center}
+	\clearpage
+	\section[htb]{Prosta gra 3D}
 \end{sloppypar}
-\begin{center}
-	\begin{figure}[htb]
-		\centering
-		\includegraphics[width=0.6\textwidth]{enemy_collision.png}
-		\caption{Określenie granic kolizji dla przeciwnika}
-	\end{figure}
-	\begin{figure}[htb]
-		\centering
-		\includegraphics[width=\textwidth]{mob_path.png}
-		\caption{Podgląd na główną scenę w edytorze 2D wraz ze ściezką \emph{Enemy}}
-	\end{figure}
-	\begin{figure}
-		\centering
-		\includegraphics[width=\textwidth]{code.png}
-		\caption{Fragment kodu GDScript głównej sceny gry}
-	\end{figure}
-	\begin{figure}
-		\centering
-		\includegraphics[height=0.35\textheight]{get_ready.png}
-		\caption{Ekran rozgrzewający}
-	\end{figure}
-	\begin{figure}
-		\centering
-		\includegraphics[height=0.35\textheight]{get_ready.png}
-		\caption{Ekran rozgrzewający}
-	\end{figure}
-	\begin{figure}
-		\centering
-		\includegraphics[height=0.35\textheight]{game1.png}
-		\caption{W trakcie gry}
-	\end{figure}
-	\begin{figure}
-		\centering
-		\includegraphics[height=0.35\textheight]{game_over.png}
-		\caption{"Game over"}
-	\end{figure}
-\end{center}
+
 \end{document}
