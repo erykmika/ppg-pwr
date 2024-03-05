@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.2)  3 MAR 2024 10:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.2)  5 MAR 2024 16:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -26,6 +26,47 @@ File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
+)
+(/usr/share/texlive/texmf-dist/tex/latex/ragged2e/ragged2e.sty
+Package: ragged2e 2021/12/15 v3.1 ragged2e Package
+\CenteringLeftskip=\skip49
+\RaggedLeftLeftskip=\skip50
+\RaggedRightLeftskip=\skip51
+\CenteringRightskip=\skip52
+\RaggedLeftRightskip=\skip53
+\RaggedRightRightskip=\skip54
+\CenteringParfillskip=\skip55
+\RaggedLeftParfillskip=\skip56
+\RaggedRightParfillskip=\skip57
+\JustifyingParfillskip=\skip58
+\CenteringParindent=\skip59
+\RaggedLeftParindent=\skip60
+\RaggedRightParindent=\skip61
+\JustifyingParindent=\skip62
+)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count193
@@ -34,46 +75,109 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 No file raport.aux.
 \openout1 = `raport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count194
+\scratchdimen=\dimen141
+\scratchbox=\box51
+\nofMPsegments=\count195
+\nofMParguments=\count196
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count197
+\MPscratchDim=\dimen142
+\MPnumerator=\count198
+\makeMPintoPDFobject=\count199
+\everyMPtoPDFconversion=\toks18
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 15.
+(Font)              <12> on input line 20.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 15.
+(Font)              <8> on input line 20.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 15.
+(Font)              <6> on input line 20.
+
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./raport.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+<./img//enemy_collision.png, id=12, 311.1625pt x 168.63pt>
+File: ./img//enemy_collision.png Graphic file (type png)
+<use ./img//enemy_collision.png>
+Package pdftex.def Info: ./img//enemy_collision.png  used on input line 49.
+(pdftex.def)             Requested size: 207.0021pt x 112.18127pt.
+<./img//mob_path.png, id=14, 1848.9075pt x 974.64125pt>
+File: ./img//mob_path.png Graphic file (type png)
+<use ./img//mob_path.png>
+Package pdftex.def Info: ./img//mob_path.png  used on input line 54.
+(pdftex.def)             Requested size: 345.0pt x 181.86734pt.
+<./img//code.png, id=15, 1284.8pt x 714.67pt>
+File: ./img//code.png Graphic file (type png)
+<use ./img//code.png>
+Package pdftex.def Info: ./img//code.png  used on input line 59.
+(pdftex.def)             Requested size: 345.0pt x 191.90569pt.
+<./img//get_ready.png, id=16, 480.79625pt x 761.84625pt>
+File: ./img//get_ready.png Graphic file (type png)
+<use ./img//get_ready.png>
+Package pdftex.def Info: ./img//get_ready.png  used on input line 64.
+(pdftex.def)             Requested size: 132.08365pt x 209.30365pt.
+File: ./img//get_ready.png Graphic file (type png)
+<use ./img//get_ready.png>
+Package pdftex.def Info: ./img//get_ready.png  used on input line 69.
+(pdftex.def)             Requested size: 132.08365pt x 209.30365pt.
+<./img//game1.png, id=17, 480.79625pt x 761.84625pt>
+File: ./img//game1.png Graphic file (type png)
+<use ./img//game1.png>
+Package pdftex.def Info: ./img//game1.png  used on input line 74.
+(pdftex.def)             Requested size: 132.08365pt x 209.30365pt.
+<./img//game_over.png, id=18, 480.79625pt x 761.84625pt>
+File: ./img//game_over.png Graphic file (type png)
+<use ./img//game_over.png>
+Package pdftex.def Info: ./img//game_over.png  used on input line 79.
+(pdftex.def)             Requested size: 132.08365pt x 209.30365pt.
+ [2 <./img//enemy_collision.png> <./img//mob_path.png>] [3 <./img//code.png> <.
+/img//get_ready.png>]
+[4 <./img//game1.png>] [5 <./img//game_over.png>] (./raport.aux) ) 
 Here is how much of TeX's memory you used:
- 648 strings out of 480247
- 9594 string characters out of 5896152
- 293788 words of memory out of 5000000
- 18659 multiletter control sequences out of 15000+600000
- 475833 words of font info for 42 fonts, out of 8000000 for 9000
+ 1636 strings out of 480247
+ 25611 string characters out of 5896152
+ 311845 words of memory out of 5000000
+ 19599 multiletter control sequences out of 15000+600000
+ 477630 words of font info for 45 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,12n,38p,150b,268s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/er
+ 55i,12n,62p,212b,280s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/erykm
+/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/eryk
+m/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/ery
+km/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> </home/er
 ykm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/e
 rykm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/
 erykm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home
 /erykm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-Output written on raport.pdf (1 page, 24568 bytes).
+Output written on raport.pdf (5 pages, 303213 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 20 compressed objects within 1 object stream
+ 234 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
