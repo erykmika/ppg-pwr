@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbg5dt08ose4o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kvokp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fo6g6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_inkou"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gi5rl"]
+size = Vector3(30, 1, 30)
+
+[node name="Level" type="Node3D"]
+
+[node name="Box" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.36665, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box"]
+shape = SubResource("BoxShape3D_kvokp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Box"]
+transform = Transform3D(1, 0, 0, 0, 0.911705, 0.410846, 0, -0.410846, 0.911705, 0, 0, 0)
+visibility_parent = NodePath(".")
+mesh = SubResource("BoxMesh_fo6g6")
+skeleton = NodePath("")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.989932, 0.141541, 0, -0.141541, 0.989932, 0.00449431, 8.64746, 13.4578)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_inkou")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_gi5rl")
+
+[node name="Box2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.90237, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box2"]
+shape = SubResource("BoxShape3D_kvokp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Box2"]
+transform = Transform3D(1, 0, 0, 0, 0.911705, 0.410846, 0, -0.410846, 0.911705, 0, 0, 0)
+visibility_parent = NodePath(".")
+mesh = SubResource("BoxMesh_fo6g6")
+skeleton = NodePath("")
+
+[node name="Box3" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.36665, 5.82838)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box3"]
+shape = SubResource("BoxShape3D_kvokp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Box3"]
+transform = Transform3D(1, 0, 0, 0, 0.911705, 0.410846, 0, -0.410846, 0.911705, 0, 0, 0)
+visibility_parent = NodePath(".")
+mesh = SubResource("BoxMesh_fo6g6")
+skeleton = NodePath("")
