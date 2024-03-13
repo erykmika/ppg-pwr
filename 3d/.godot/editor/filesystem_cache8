@@ -1,3 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1710002724
+::res://::1710363163
 icon.svg::CompressedTexture2D::2574806710447517424::1710002720::1710002725::1::::<><>::
+level.tscn::PackedScene::2470823699102754632::1710364272::0::1::::<><>::uid://dgjakouyhimvq::::res://Steve.tscn
+Steve.tscn::PackedScene::7598993137956208314::1710363101::0::1::::<><>::
+::res://assets/::1710363127

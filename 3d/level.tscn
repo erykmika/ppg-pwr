@@ -1,4 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbg5dt08ose4o"]
+[gd_scene load_steps=11 format=3 uid="uid://bbg5dt08ose4o"]
+
+[ext_resource type="PackedScene" uid="uid://dgjakouyhimvq" path="res://assets/Steve.tscn" id="1_clt2u"]
+[ext_resource type="Script" path="res://scripts/Steve.gd" id="2_i7wnb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kvokp"]
 
@@ -9,6 +12,20 @@ size = Vector3(30, 1, 30)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gi5rl"]
 size = Vector3(30, 1, 30)
+
+[sub_resource type="Skin" id="Skin_1k7pd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7tyy"]
+albedo_color = Color(0, 0.407843, 0.2, 1)
+
+[sub_resource type="Sky" id="Sky_vcx88"]
+
+[sub_resource type="Environment" id="Environment_ojxar"]
+sky = SubResource("Sky_vcx88")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.3
+ambient_light_energy = 13.3
 
 [node name="Level" type="Node3D"]
 
@@ -25,7 +42,7 @@ mesh = SubResource("BoxMesh_fo6g6")
 skeleton = NodePath("")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.989932, 0.141541, 0, -0.141541, 0.989932, 0.00449431, 8.64746, 13.4578)
+transform = Transform3D(1, 0, 0, 0, 0.726934, 0.686707, 0, -0.686707, 0.726934, 0.00449431, 8.05054, 9.91946)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -34,6 +51,8 @@ shape = SubResource("BoxShape3D_inkou")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("BoxMesh_gi5rl")
+skin = SubResource("Skin_1k7pd")
+surface_material_override/0 = SubResource("StandardMaterial3D_q7tyy")
 
 [node name="Box2" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.90237, 0)
@@ -58,3 +77,10 @@ transform = Transform3D(1, 0, 0, 0, 0.911705, 0.410846, 0, -0.410846, 0.911705, 
 visibility_parent = NodePath(".")
 mesh = SubResource("BoxMesh_fo6g6")
 skeleton = NodePath("")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ojxar")
+
+[node name="Steve" parent="." instance=ExtResource("1_clt2u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18153, 0)
+script = ExtResource("2_i7wnb")
