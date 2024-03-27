@@ -1,48 +1,66 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbg5dt08ose4o"]
+[gd_scene load_steps=18 format=3 uid="uid://bbg5dt08ose4o"]
 
+[ext_resource type="Script" path="res://scripts/Camera3D.gd" id="1_4kfqu"]
 [ext_resource type="PackedScene" uid="uid://dgjakouyhimvq" path="res://assets/Steve.tscn" id="1_clt2u"]
+[ext_resource type="Texture2D" uid="uid://c0ru4fhjadlxn" path="res://textures/TactilePaving002_1K-JPG_NormalDX.jpg" id="1_i287f"]
+[ext_resource type="Texture2D" uid="uid://c78jtrqryf7gd" path="res://textures/TactilePaving002_1K-JPG_Roughness.jpg" id="2_5aku0"]
 [ext_resource type="Script" path="res://scripts/Steve.gd" id="2_i7wnb"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kvokp"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_fo6g6"]
+[ext_resource type="MeshLibrary" uid="uid://ff2ek3qeiwf2" path="res://assets/blocks.tres" id="6_qdpsn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_inkou"]
 size = Vector3(30, 1, 30)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1t5b"]
+vertex_color_is_srgb = true
+albedo_color = Color(0.0588235, 0.580392, 0, 0.498039)
+metallic_specular = 0.0
+roughness_texture = ExtResource("2_5aku0")
+emission = Color(1, 0, 0, 1)
+normal_enabled = true
+normal_scale = 16.0
+normal_texture = ExtResource("1_i287f")
+uv1_triplanar = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mpplu"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_gi5rl"]
+material = SubResource("ShaderMaterial_mpplu")
 size = Vector3(30, 1, 30)
 
-[sub_resource type="Skin" id="Skin_1k7pd"]
+[sub_resource type="Skin" id="Skin_5wy2r"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7tyy"]
-albedo_color = Color(0, 0.407843, 0.2, 1)
+[sub_resource type="Gradient" id="Gradient_vukgp"]
+colors = PackedColorArray(0.34902, 0, 0.458824, 1, 0, 1, 0.623529, 1)
 
-[sub_resource type="Sky" id="Sky_vcx88"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rcpo6"]
+gradient = SubResource("Gradient_vukgp")
+use_hdr = true
+fill_from = Vector2(0, 0.80531)
+fill_to = Vector2(0, 0.420354)
 
-[sub_resource type="Environment" id="Environment_ojxar"]
-sky = SubResource("Sky_vcx88")
-ambient_light_source = 3
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_sky_contribution = 0.3
-ambient_light_energy = 13.3
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6tdry"]
+panorama = SubResource("GradientTexture2D_rcpo6")
+
+[sub_resource type="Sky" id="Sky_iwfji"]
+sky_material = SubResource("PanoramaSkyMaterial_6tdry")
+
+[sub_resource type="Environment" id="Environment_y4442"]
+background_mode = 2
+background_color = Color(0.360784, 0.517647, 0.894118, 1)
+background_energy_multiplier = 0.85
+sky = SubResource("Sky_iwfji")
+sky_custom_fov = 10.0
+ambient_light_color = Color(1, 1, 1, 0)
+ambient_light_sky_contribution = 0.55
+ambient_light_energy = 0.89
+reflected_light_source = 1
+volumetric_fog_enabled = true
+adjustment_enabled = true
+adjustment_brightness = 1.26
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0lpy8"]
 
 [node name="Level" type="Node3D"]
-
-[node name="Box" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.36665, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box"]
-shape = SubResource("BoxShape3D_kvokp")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Box"]
-transform = Transform3D(1, 0, 0, 0, 0.911705, 0.410846, 0, -0.410846, 0.911705, 0, 0, 0)
-visibility_parent = NodePath(".")
-mesh = SubResource("BoxMesh_fo6g6")
-skeleton = NodePath("")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.726934, 0.686707, 0, -0.686707, 0.726934, 0.00449431, 8.05054, 9.91946)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -50,37 +68,26 @@ transform = Transform3D(1, 0, 0, 0, 0.726934, 0.686707, 0, -0.686707, 0.726934, 
 shape = SubResource("BoxShape3D_inkou")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+material_override = SubResource("StandardMaterial3D_a1t5b")
 mesh = SubResource("BoxMesh_gi5rl")
-skin = SubResource("Skin_1k7pd")
-surface_material_override/0 = SubResource("StandardMaterial3D_q7tyy")
-
-[node name="Box2" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.90237, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box2"]
-shape = SubResource("BoxShape3D_kvokp")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Box2"]
-transform = Transform3D(1, 0, 0, 0, 0.911705, 0.410846, 0, -0.410846, 0.911705, 0, 0, 0)
-visibility_parent = NodePath(".")
-mesh = SubResource("BoxMesh_fo6g6")
-skeleton = NodePath("")
-
-[node name="Box3" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.36665, 5.82838)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box3"]
-shape = SubResource("BoxShape3D_kvokp")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Box3"]
-transform = Transform3D(1, 0, 0, 0, 0.911705, 0.410846, 0, -0.410846, 0.911705, 0, 0, 0)
-visibility_parent = NodePath(".")
-mesh = SubResource("BoxMesh_fo6g6")
-skeleton = NodePath("")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ojxar")
+skin = SubResource("Skin_5wy2r")
 
 [node name="Steve" parent="." instance=ExtResource("1_clt2u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18153, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09689, 0)
+slide_on_ceiling = false
 script = ExtResource("2_i7wnb")
+
+[node name="Camera3D" type="Camera3D" parent="Steve"]
+transform = Transform3D(1, 0, 0, 0, 0.726934, 0.686707, 0, -0.686707, 0.726934, 0.00449431, 5.86901, 9.91946)
+environment = SubResource("Environment_y4442")
+script = ExtResource("1_4kfqu")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("6_qdpsn")
+physics_material = SubResource("PhysicsMaterial_0lpy8")
+cell_size = Vector3(1, 1, 1)
+cell_octant_size = 1
+data = {
+"cells": PackedInt32Array(14, 65521, 0, 13, 65521, 0, 12, 65521, 0, 11, 65521, 0, 9, 65521, 0, 10, 65521, 0, 7, 65521, 0, 8, 65521, 0, 65523, 65521, 0, 65524, 65521, 0, 65526, 65521, 0, 65527, 65521, 0, 65528, 65521, 0, 65529, 65521, 0, 65530, 65521, 0, 65531, 65521, 0, 65532, 65521, 0, 65533, 65521, 0, 65534, 65521, 0, 65535, 65521, 0, 0, 65521, 0, 1, 65521, 0, 2, 65521, 0, 3, 65521, 0, 4, 65521, 0, 5, 65521, 0, 6, 65521, 0, 14, 65525, 0, 14, 65524, 0, 14, 65523, 0, 14, 65522, 0, 14, 13, 0, 14, 12, 0, 14, 11, 0, 14, 10, 0, 14, 9, 0, 14, 8, 0, 14, 7, 0, 14, 6, 0, 14, 5, 0, 14, 4, 0, 14, 3, 0, 14, 2, 0, 14, 1, 0, 14, 0, 0, 14, 65535, 0, 14, 65534, 0, 14, 65533, 0, 14, 65532, 0, 14, 65531, 0, 14, 65530, 0, 14, 65529, 0, 14, 65528, 0, 14, 65527, 0, 14, 65526, 0, 65525, 65521, 0, 65522, 65521, 0, 65521, 65521, 0, 65521, 65522, 0, 65521, 65523, 0, 65521, 65524, 0, 65521, 65528, 0, 65521, 65529, 0, 65521, 65530, 0, 65521, 65531, 0, 65521, 65532, 0, 65521, 65533, 0, 65521, 65534, 0, 65521, 65535, 0, 65521, 0, 0, 65521, 1, 0, 65521, 2, 0, 65521, 3, 0, 65521, 4, 0, 65521, 5, 0, 65521, 6, 0, 65521, 7, 0, 65521, 8, 0, 65521, 9, 0, 65521, 10, 0, 65521, 11, 0, 65521, 12, 0, 65521, 13, 0, 65521, 14, 0, 65522, 14, 0, 65523, 14, 0, 65524, 14, 0, 65525, 14, 0, 65526, 14, 0, 65527, 14, 0, 65528, 14, 0, 65529, 14, 0, 65530, 14, 0, 65531, 14, 0, 65532, 14, 0, 65533, 14, 0, 65534, 14, 0, 65535, 14, 0, 0, 14, 0, 1, 14, 0, 2, 14, 0, 3, 14, 0, 4, 14, 0, 5, 14, 0, 6, 14, 0, 7, 14, 0, 8, 14, 0, 9, 14, 0, 10, 14, 0, 11, 14, 0, 12, 14, 0, 13, 14, 0, 589837, 11, 0, 14, 14, 0, 7, 65525, 1, 7, 65526, 1, 7, 65527, 1, 7, 65528, 1, 7, 65529, 1, 3, 65529, 1, 2, 65529, 1, 65526, 65522, 1, 65526, 65523, 1, 65526, 65528, 1, 65526, 65529, 1, 65526, 65530, 1, 65527, 65530, 1, 65528, 65530, 1, 65529, 65530, 1, 65524, 1, 1, 65525, 1, 1, 65526, 1, 1, 65526, 65531, 1, 65526, 65532, 1, 65526, 65533, 1, 65534, 65522, 1, 65534, 65525, 1, 65534, 65526, 1, 65534, 65527, 1, 65534, 65528, 1, 65534, 65529, 1, 65535, 65525, 1, 0, 65525, 1, 1, 65525, 1, 2, 65525, 1, 3, 65525, 1, 4, 65525, 1, 65535, 65533, 1, 0, 65533, 1, 1, 65533, 1, 2, 65533, 1, 3, 65533, 1, 65534, 65530, 1, 65531, 65533, 1, 65531, 65534, 1, 65531, 65535, 1, 65522, 8, 1, 65523, 8, 1, 65524, 8, 1, 65528, 5, 1, 65529, 5, 1, 65530, 5, 1, 65530, 6, 1, 65531, 6, 1, 65532, 6, 1, 4, 65532, 1, 4, 65533, 1, 4, 65534, 1, 4, 65535, 1, 8, 65529, 1, 9, 65529, 1, 10, 65529, 1, 11, 65529, 1, 9, 65530, 1, 9, 65531, 1, 9, 65533, 1, 9, 65534, 1, 10, 65534, 1, 4, 11, 1, 4, 10, 1, 4, 8, 1, 5, 8, 1, 6, 8, 1, 6, 7, 1, 7, 7, 1, 8, 7, 1, 6, 5, 1, 6, 6, 1, 65525, 11, 1, 65526, 11, 1, 4, 9, 1, 65534, 9, 1, 65535, 9, 1, 0, 9, 1, 65530, 7, 1, 65530, 8, 1, 10, 9, 1, 10, 10, 1, 10, 11, 1, 10, 12, 1, 11, 12, 1, 65521, 65527, 0, 65521, 65526, 0, 65521, 65525, 0, 0, 5, 1, 1, 5, 1, 13, 3, 1, 12, 3, 1, 11, 3, 1, 9, 3, 1, 8, 3, 1, 9, 65532, 1, 65526, 65524, 1, 65534, 10, 1, 65534, 11, 1, 65524, 2, 1, 65524, 3, 1, 65524, 4, 1, 65524, 5, 1, 65525, 65531, 1, 65524, 65531, 1, 65533, 65526, 1, 65530, 65526, 1, 65532, 65526, 1, 65531, 65526, 1, 2, 5, 1, 2, 4, 1, 2, 3, 1, 11, 65534, 1, 9, 65535, 1, 10, 3, 1, 65531, 0, 1, 65531, 1, 1, 65530, 1, 1, 65529, 1, 1, 0, 6, 1, 65528, 11, 1, 65530, 11, 1, 65529, 11, 1, 65527, 11, 1)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)

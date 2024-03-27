@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxawcpucy5hfm"]
+
+[ext_resource type="PackedScene" uid="uid://bwslvo04g03x6" path="res://imports/block.gltf" id="1_4om6s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aayd1"]
+albedo_color = Color(1, 1, 0.117647, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eykdr"]
+
+[node name="block" instance=ExtResource("1_4om6s")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_aayd1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_eykdr")
