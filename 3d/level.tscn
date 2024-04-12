@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bbg5dt08ose4o"]
+[gd_scene load_steps=23 format=3 uid="uid://bbg5dt08ose4o"]
 
 [ext_resource type="Script" path="res://scripts/Camera3D.gd" id="1_4kfqu"]
 [ext_resource type="PackedScene" uid="uid://dgjakouyhimvq" path="res://assets/Steve.tscn" id="1_clt2u"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c78jtrqryf7gd" path="res://textures/TactilePaving002_1K-JPG_Roughness.jpg" id="2_5aku0"]
 [ext_resource type="Script" path="res://scripts/Steve.gd" id="2_i7wnb"]
 [ext_resource type="MeshLibrary" uid="uid://ff2ek3qeiwf2" path="res://assets/blocks.tres" id="6_qdpsn"]
+[ext_resource type="PackedScene" uid="uid://beoby68xx612h" path="res://enemy.tscn" id="7_6arce"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_inkou"]
 size = Vector3(30, 1, 30)
@@ -40,25 +41,118 @@ fill_to = Vector2(0, 0.420354)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6tdry"]
 panorama = SubResource("GradientTexture2D_rcpo6")
+filter = false
 
 [sub_resource type="Sky" id="Sky_iwfji"]
 sky_material = SubResource("PanoramaSkyMaterial_6tdry")
+process_mode = 3
 
 [sub_resource type="Environment" id="Environment_y4442"]
 background_mode = 2
 background_color = Color(0.360784, 0.517647, 0.894118, 1)
-background_energy_multiplier = 0.85
+background_energy_multiplier = 1.2
 sky = SubResource("Sky_iwfji")
 sky_custom_fov = 10.0
 ambient_light_color = Color(1, 1, 1, 0)
 ambient_light_sky_contribution = 0.55
 ambient_light_energy = 0.89
-reflected_light_source = 1
-volumetric_fog_enabled = true
+reflected_light_source = 2
 adjustment_enabled = true
 adjustment_brightness = 1.26
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0lpy8"]
+
+[sub_resource type="Animation" id="Animation_elcqf"]
+resource_name = "enemy1animation"
+length = 30.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.029, 0, 3.1, 9.2, 12.3, 14.3, 20.2, 25.1, 25.6, 26.8, 27.3, 29.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(2.08084, 1.61792, 8), Vector3(2.08084, 1.61792, 8), Vector3(-2.80784, 1.61792, 8), Vector3(-2.80784, 1.61792, -7.73088), Vector3(-7.84172, 1.61792, -7.73088), Vector3(-7.84172, 1.61792, -11.9903), Vector3(5.90464, 1.61792, -11.9903), Vector3(5.90464, 1.61792, 3.64376), Vector3(5.90464, 1.61792, 4.75702), Vector3(3.87173, 1.61792, 4.75702), Vector3(3.87173, 1.61792, 5.96709), Vector3(2.41965, 1.61792, 5.96709)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.1, 6.2, 9.2, 12.3, 14.3, 20.2, 25.4, 27, 29.4, 30),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.785398), Vector3(0, 0, -2.66911), Vector3(0, 0, -1.91629), Vector3(0, 0, -2.67789), Vector3(0, 0, 2.86068), Vector3(0, 0, 0.458432), Vector3(0, 0, -1.35561), Vector3(0, 0, -2.19309), Vector3(0, 0, -2.00941), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h4dfo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.08084, 1.61792, -11.8728)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.785398)]
+}
+
+[sub_resource type="Animation" id="Animation_yhcvf"]
+resource_name = "enemy2animation"
+length = 28.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 6, 11.7, 18, 21.5, 24.9, 27.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(2.08084, 1.61792, -11.8728), Vector3(12.8152, 1.61792, -11.8728), Vector3(12.8152, 1.61792, 0.800667), Vector3(-2.85382, 1.61792, 0.800667), Vector3(-2.85382, 1.61792, -7.57153), Vector3(-7.84642, 1.61792, -7.57153), Vector3(-7.84642, 1.61792, -12.1033)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(6, 11.7, 18, 21.5, 24.9, 27.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.26465), Vector3(0, 0, 2.79974), Vector3(0, 0, 2.13928), Vector3(0, 0, 1.08614), Vector3(0.892492, 3.14159, -2.5731), Vector3(-0.373801, -0.566104, -2.82806)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f2443"]
+_data = {
+"RESET": SubResource("Animation_h4dfo"),
+"enemy1animation": SubResource("Animation_elcqf"),
+"enemy2animation": SubResource("Animation_yhcvf")
+}
 
 [node name="Level" type="Node3D"]
 
@@ -73,7 +167,7 @@ mesh = SubResource("BoxMesh_gi5rl")
 skin = SubResource("Skin_5wy2r")
 
 [node name="Steve" parent="." instance=ExtResource("1_clt2u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09689, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45486, 0)
 slide_on_ceiling = false
 script = ExtResource("2_i7wnb")
 
@@ -88,6 +182,33 @@ physics_material = SubResource("PhysicsMaterial_0lpy8")
 cell_size = Vector3(1, 1, 1)
 cell_octant_size = 1
 data = {
-"cells": PackedInt32Array(14, 65521, 0, 13, 65521, 0, 12, 65521, 0, 11, 65521, 0, 9, 65521, 0, 10, 65521, 0, 7, 65521, 0, 8, 65521, 0, 65523, 65521, 0, 65524, 65521, 0, 65526, 65521, 0, 65527, 65521, 0, 65528, 65521, 0, 65529, 65521, 0, 65530, 65521, 0, 65531, 65521, 0, 65532, 65521, 0, 65533, 65521, 0, 65534, 65521, 0, 65535, 65521, 0, 0, 65521, 0, 1, 65521, 0, 2, 65521, 0, 3, 65521, 0, 4, 65521, 0, 5, 65521, 0, 6, 65521, 0, 14, 65525, 0, 14, 65524, 0, 14, 65523, 0, 14, 65522, 0, 14, 13, 0, 14, 12, 0, 14, 11, 0, 14, 10, 0, 14, 9, 0, 14, 8, 0, 14, 7, 0, 14, 6, 0, 14, 5, 0, 14, 4, 0, 14, 3, 0, 14, 2, 0, 14, 1, 0, 14, 0, 0, 14, 65535, 0, 14, 65534, 0, 14, 65533, 0, 14, 65532, 0, 14, 65531, 0, 14, 65530, 0, 14, 65529, 0, 14, 65528, 0, 14, 65527, 0, 14, 65526, 0, 65525, 65521, 0, 65522, 65521, 0, 65521, 65521, 0, 65521, 65522, 0, 65521, 65523, 0, 65521, 65524, 0, 65521, 65528, 0, 65521, 65529, 0, 65521, 65530, 0, 65521, 65531, 0, 65521, 65532, 0, 65521, 65533, 0, 65521, 65534, 0, 65521, 65535, 0, 65521, 0, 0, 65521, 1, 0, 65521, 2, 0, 65521, 3, 0, 65521, 4, 0, 65521, 5, 0, 65521, 6, 0, 65521, 7, 0, 65521, 8, 0, 65521, 9, 0, 65521, 10, 0, 65521, 11, 0, 65521, 12, 0, 65521, 13, 0, 65521, 14, 0, 65522, 14, 0, 65523, 14, 0, 65524, 14, 0, 65525, 14, 0, 65526, 14, 0, 65527, 14, 0, 65528, 14, 0, 65529, 14, 0, 65530, 14, 0, 65531, 14, 0, 65532, 14, 0, 65533, 14, 0, 65534, 14, 0, 65535, 14, 0, 0, 14, 0, 1, 14, 0, 2, 14, 0, 3, 14, 0, 4, 14, 0, 5, 14, 0, 6, 14, 0, 7, 14, 0, 8, 14, 0, 9, 14, 0, 10, 14, 0, 11, 14, 0, 12, 14, 0, 13, 14, 0, 589837, 11, 0, 14, 14, 0, 7, 65525, 1, 7, 65526, 1, 7, 65527, 1, 7, 65528, 1, 7, 65529, 1, 3, 65529, 1, 2, 65529, 1, 65526, 65522, 1, 65526, 65523, 1, 65526, 65528, 1, 65526, 65529, 1, 65526, 65530, 1, 65527, 65530, 1, 65528, 65530, 1, 65529, 65530, 1, 65524, 1, 1, 65525, 1, 1, 65526, 1, 1, 65526, 65531, 1, 65526, 65532, 1, 65526, 65533, 1, 65534, 65522, 1, 65534, 65525, 1, 65534, 65526, 1, 65534, 65527, 1, 65534, 65528, 1, 65534, 65529, 1, 65535, 65525, 1, 0, 65525, 1, 1, 65525, 1, 2, 65525, 1, 3, 65525, 1, 4, 65525, 1, 65535, 65533, 1, 0, 65533, 1, 1, 65533, 1, 2, 65533, 1, 3, 65533, 1, 65534, 65530, 1, 65531, 65533, 1, 65531, 65534, 1, 65531, 65535, 1, 65522, 8, 1, 65523, 8, 1, 65524, 8, 1, 65528, 5, 1, 65529, 5, 1, 65530, 5, 1, 65530, 6, 1, 65531, 6, 1, 65532, 6, 1, 4, 65532, 1, 4, 65533, 1, 4, 65534, 1, 4, 65535, 1, 8, 65529, 1, 9, 65529, 1, 10, 65529, 1, 11, 65529, 1, 9, 65530, 1, 9, 65531, 1, 9, 65533, 1, 9, 65534, 1, 10, 65534, 1, 4, 11, 1, 4, 10, 1, 4, 8, 1, 5, 8, 1, 6, 8, 1, 6, 7, 1, 7, 7, 1, 8, 7, 1, 6, 5, 1, 6, 6, 1, 65525, 11, 1, 65526, 11, 1, 4, 9, 1, 65534, 9, 1, 65535, 9, 1, 0, 9, 1, 65530, 7, 1, 65530, 8, 1, 10, 9, 1, 10, 10, 1, 10, 11, 1, 10, 12, 1, 11, 12, 1, 65521, 65527, 0, 65521, 65526, 0, 65521, 65525, 0, 0, 5, 1, 1, 5, 1, 13, 3, 1, 12, 3, 1, 11, 3, 1, 9, 3, 1, 8, 3, 1, 9, 65532, 1, 65526, 65524, 1, 65534, 10, 1, 65534, 11, 1, 65524, 2, 1, 65524, 3, 1, 65524, 4, 1, 65524, 5, 1, 65525, 65531, 1, 65524, 65531, 1, 65533, 65526, 1, 65530, 65526, 1, 65532, 65526, 1, 65531, 65526, 1, 2, 5, 1, 2, 4, 1, 2, 3, 1, 11, 65534, 1, 9, 65535, 1, 10, 3, 1, 65531, 0, 1, 65531, 1, 1, 65530, 1, 1, 65529, 1, 1, 0, 6, 1, 65528, 11, 1, 65530, 11, 1, 65529, 11, 1, 65527, 11, 1)
+"cells": PackedInt32Array(14, 65521, 0, 13, 65521, 0, 12, 65521, 0, 11, 65521, 0, 9, 65521, 0, 10, 65521, 0, 7, 65521, 0, 8, 65521, 0, 65523, 65521, 0, 65524, 65521, 0, 65526, 65521, 0, 65527, 65521, 0, 65528, 65521, 0, 65529, 65521, 0, 65530, 65521, 0, 65531, 65521, 0, 65532, 65521, 0, 65533, 65521, 0, 65534, 65521, 0, 65535, 65521, 0, 0, 65521, 0, 1, 65521, 0, 2, 65521, 0, 3, 65521, 0, 4, 65521, 0, 5, 65521, 0, 6, 65521, 0, 14, 65525, 0, 14, 65524, 0, 14, 65523, 0, 14, 65522, 0, 14, 13, 0, 14, 12, 0, 14, 11, 0, 14, 10, 0, 14, 9, 0, 14, 8, 0, 14, 7, 0, 14, 6, 0, 14, 5, 0, 14, 4, 0, 14, 3, 0, 14, 2, 0, 14, 1, 0, 14, 0, 0, 14, 65535, 0, 14, 65534, 0, 14, 65533, 0, 14, 65532, 0, 14, 65531, 0, 14, 65530, 0, 14, 65529, 0, 14, 65528, 0, 14, 65527, 0, 14, 65526, 0, 65525, 65521, 0, 65522, 65521, 0, 65521, 65521, 0, 65521, 65522, 0, 65521, 65523, 0, 65521, 65524, 0, 65521, 65528, 0, 65521, 65529, 0, 65521, 65530, 0, 65521, 65531, 0, 65521, 65532, 0, 65521, 65533, 0, 65521, 65534, 0, 65521, 65535, 0, 65521, 0, 0, 65521, 1, 0, 65521, 2, 0, 65521, 3, 0, 65521, 4, 0, 65521, 5, 0, 65521, 6, 0, 65521, 7, 0, 65521, 8, 0, 65521, 9, 0, 65521, 10, 0, 65521, 11, 0, 65521, 12, 0, 65521, 13, 0, 65521, 14, 0, 65522, 14, 0, 65523, 14, 0, 65524, 14, 0, 65525, 14, 0, 65526, 14, 0, 65527, 14, 0, 65528, 14, 0, 65529, 14, 0, 65530, 14, 0, 65531, 14, 0, 65532, 14, 0, 65533, 14, 0, 65534, 14, 0, 65535, 14, 0, 0, 14, 0, 1, 14, 0, 2, 14, 0, 3, 14, 0, 4, 14, 0, 5, 14, 0, 6, 14, 0, 7, 14, 0, 8, 14, 0, 9, 14, 0, 10, 14, 0, 11, 14, 0, 12, 14, 0, 13, 14, 0, 14, 14, 0, 7, 65525, 1, 7, 65526, 1, 7, 65527, 1, 7, 65528, 1, 7, 65529, 1, 3, 65529, 1, 2, 65529, 1, 65526, 65522, 1, 65526, 65523, 1, 65526, 65528, 1, 65526, 65529, 1, 65526, 65530, 1, 65527, 65530, 1, 65528, 65530, 1, 65529, 65530, 1, 65524, 1, 1, 65525, 1, 1, 65526, 1, 1, 65526, 65531, 1, 65526, 65532, 1, 65526, 65533, 1, 65534, 65522, 1, 65534, 65525, 1, 65534, 65526, 1, 65534, 65527, 1, 65534, 65528, 1, 65534, 65529, 1, 65535, 65525, 1, 0, 65525, 1, 1, 65525, 1, 2, 65525, 1, 3, 65525, 1, 4, 65525, 1, 65535, 65533, 1, 0, 65533, 1, 1, 65533, 1, 2, 65533, 1, 3, 65533, 1, 65534, 65530, 1, 65531, 65533, 1, 65531, 65534, 1, 65531, 65535, 1, 65522, 8, 1, 65523, 8, 1, 65524, 8, 1, 65528, 5, 1, 65529, 5, 1, 65530, 5, 1, 65530, 6, 1, 4, 65532, 1, 4, 65533, 1, 4, 65534, 1, 4, 65535, 1, 8, 65529, 1, 9, 65529, 1, 10, 65529, 1, 11, 65529, 1, 9, 65530, 1, 9, 65531, 1, 9, 65533, 1, 9, 65534, 1, 10, 65534, 1, 4, 11, 1, 4, 10, 1, 4, 8, 1, 6, 7, 1, 7, 7, 1, 8, 7, 1, 65525, 11, 1, 65526, 11, 1, 4, 9, 1, 65534, 9, 1, 65535, 9, 1, 0, 9, 1, 65530, 7, 1, 65530, 8, 1, 10, 10, 1, 10, 11, 1, 65521, 65527, 0, 65521, 65526, 0, 65521, 65525, 0, 13, 3, 1, 12, 3, 1, 11, 3, 1, 9, 3, 1, 8, 3, 1, 9, 65532, 1, 65526, 65524, 1, 65534, 10, 1, 65534, 11, 1, 65524, 2, 1, 65524, 3, 1, 65524, 4, 1, 65524, 5, 1, 65525, 65531, 1, 65524, 65531, 1, 65533, 65526, 1, 65530, 65526, 1, 65532, 65526, 1, 65531, 65526, 1, 2, 4, 1, 2, 3, 1, 11, 65534, 1, 9, 65535, 1, 10, 3, 1, 65531, 0, 1, 65531, 1, 1, 65530, 1, 1, 65529, 1, 1, 65528, 11, 1, 65530, 11, 1, 65529, 11, 1, 65527, 11, 1, 2, 2, 1, 8, 2, 1, 9, 10, 1, 5, 7, 1, 8, 10, 1, 4, 7, 1, 1, 4, 1, 65535, 4, 1, 0, 4, 1, 65535, 5, 1, 65531, 6, 1, 3, 2, 1, 65530, 2, 1, 3, 11, 1, 65527, 10, 1, 5, 6, 1)
 }
-metadata/_editor_floor_ = Vector3(0, 0, 0)
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.0866167, 0.257846, -0.962296, -0.996242, -0.0224181, 0.0836653, 0, 0.965926, 0.258819, 0.0800896, 11.4919, -0.359151)
+shadow_enabled = true
+shadow_blur = 1.715
+sky_mode = 1
+
+[node name="enemy1" parent="." instance=ExtResource("7_6arce")]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 2.08084, 1.61792, -11.8728)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemy1"]
+libraries = {
+"": SubResource("AnimationLibrary_f2443")
+}
+autoplay = "enemy1animation"
+
+[node name="enemy2" parent="." instance=ExtResource("7_6arce")]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 2.08084, 1.61792, -11.8728)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemy2"]
+libraries = {
+"": SubResource("AnimationLibrary_f2443")
+}
+autoplay = "enemy2animation"
+
+[connection signal="body_entered" from="enemy1" to="Steve" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="enemy2" to="Steve" method="_on_enemy_body_entered"]

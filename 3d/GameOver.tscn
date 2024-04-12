@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvbn130t0mic4"]
+
+[ext_resource type="FontFile" uid="uid://bk5nyiq7d7g50" path="res://assets/Strengthen.ttf" id="1_4kw1r"]
+[ext_resource type="Script" path="res://GameOver.gd" id="1_sels4"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sels4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_top = 1.0
+offset_right = 1278.0
+offset_bottom = 728.0
+color = Color(0.678431, 0.239216, 0.0196078, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 178.0
+offset_right = 1263.0
+offset_bottom = 539.0
+theme_override_fonts/font = ExtResource("1_4kw1r")
+theme_override_font_sizes/font_size = 120
+text = "Game over"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 437.0
+offset_right = 917.0
+offset_bottom = 573.0
+theme_override_colors/font_hover_color = Color(0.666667, 0.12549, 0.87451, 1)
+theme_override_font_sizes/font_size = 30
+text = "Spróbuj ponownie!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

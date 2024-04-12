@@ -1,7 +1,10 @@
 res://level.tscn
 res://assets/sphere.tres
-res://level.gdshader
-res://block1.tscn
-res://block.tscn
 res://assets/blocks.tres
+res://level.gdshader
 res://assets/Steve.tscn
+res://control.tscn
+res://enemy.tscn
+res://scripts/Steve.gd
+res://GameOver.tscn
+res://GameOver.gd
