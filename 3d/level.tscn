@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bbg5dt08ose4o"]
+[gd_scene load_steps=28 format=3 uid="uid://bbg5dt08ose4o"]
 
 [ext_resource type="Script" path="res://scripts/Camera3D.gd" id="1_4kfqu"]
 [ext_resource type="PackedScene" uid="uid://dgjakouyhimvq" path="res://assets/Steve.tscn" id="1_clt2u"]
@@ -7,6 +7,11 @@
 [ext_resource type="Script" path="res://scripts/Steve.gd" id="2_i7wnb"]
 [ext_resource type="MeshLibrary" uid="uid://ff2ek3qeiwf2" path="res://assets/blocks.tres" id="6_qdpsn"]
 [ext_resource type="PackedScene" uid="uid://beoby68xx612h" path="res://enemy.tscn" id="7_6arce"]
+[ext_resource type="PackedScene" uid="uid://cmtyc5xi82uuq" path="res://coin.tscn" id="8_qq0ot"]
+[ext_resource type="Texture2D" uid="uid://bs3g7b7krt8hk" path="res://assets/hud_coin.png" id="9_3o0jp"]
+[ext_resource type="Script" path="res://coin.gd" id="9_lnopm"]
+[ext_resource type="FontFile" uid="uid://8wdvylj7r28m" path="res://assets/Starjedi.ttf" id="10_2sw0h"]
+[ext_resource type="Script" path="res://Counter.gd" id="12_vau8x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_inkou"]
 size = Vector3(30, 1, 30)
@@ -62,6 +67,33 @@ adjustment_brightness = 1.26
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0lpy8"]
 
+[sub_resource type="Animation" id="Animation_h4dfo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.08084, 1.61792, -11.8728)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.785398)]
+}
+
 [sub_resource type="Animation" id="Animation_elcqf"]
 resource_name = "enemy1animation"
 length = 30.0
@@ -89,33 +121,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, -0.785398), Vector3(0, 0, -2.66911), Vector3(0, 0, -1.91629), Vector3(0, 0, -2.67789), Vector3(0, 0, 2.86068), Vector3(0, 0, 0.458432), Vector3(0, 0, -1.35561), Vector3(0, 0, -2.19309), Vector3(0, 0, -2.00941), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_h4dfo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(2.08084, 1.61792, -11.8728)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, -0.785398)]
 }
 
 [sub_resource type="Animation" id="Animation_yhcvf"]
@@ -182,9 +187,9 @@ physics_material = SubResource("PhysicsMaterial_0lpy8")
 cell_size = Vector3(1, 1, 1)
 cell_octant_size = 1
 data = {
-"cells": PackedInt32Array(14, 65521, 0, 13, 65521, 0, 12, 65521, 0, 11, 65521, 0, 9, 65521, 0, 10, 65521, 0, 7, 65521, 0, 8, 65521, 0, 65523, 65521, 0, 65524, 65521, 0, 65526, 65521, 0, 65527, 65521, 0, 65528, 65521, 0, 65529, 65521, 0, 65530, 65521, 0, 65531, 65521, 0, 65532, 65521, 0, 65533, 65521, 0, 65534, 65521, 0, 65535, 65521, 0, 0, 65521, 0, 1, 65521, 0, 2, 65521, 0, 3, 65521, 0, 4, 65521, 0, 5, 65521, 0, 6, 65521, 0, 14, 65525, 0, 14, 65524, 0, 14, 65523, 0, 14, 65522, 0, 14, 13, 0, 14, 12, 0, 14, 11, 0, 14, 10, 0, 14, 9, 0, 14, 8, 0, 14, 7, 0, 14, 6, 0, 14, 5, 0, 14, 4, 0, 14, 3, 0, 14, 2, 0, 14, 1, 0, 14, 0, 0, 14, 65535, 0, 14, 65534, 0, 14, 65533, 0, 14, 65532, 0, 14, 65531, 0, 14, 65530, 0, 14, 65529, 0, 14, 65528, 0, 14, 65527, 0, 14, 65526, 0, 65525, 65521, 0, 65522, 65521, 0, 65521, 65521, 0, 65521, 65522, 0, 65521, 65523, 0, 65521, 65524, 0, 65521, 65528, 0, 65521, 65529, 0, 65521, 65530, 0, 65521, 65531, 0, 65521, 65532, 0, 65521, 65533, 0, 65521, 65534, 0, 65521, 65535, 0, 65521, 0, 0, 65521, 1, 0, 65521, 2, 0, 65521, 3, 0, 65521, 4, 0, 65521, 5, 0, 65521, 6, 0, 65521, 7, 0, 65521, 8, 0, 65521, 9, 0, 65521, 10, 0, 65521, 11, 0, 65521, 12, 0, 65521, 13, 0, 65521, 14, 0, 65522, 14, 0, 65523, 14, 0, 65524, 14, 0, 65525, 14, 0, 65526, 14, 0, 65527, 14, 0, 65528, 14, 0, 65529, 14, 0, 65530, 14, 0, 65531, 14, 0, 65532, 14, 0, 65533, 14, 0, 65534, 14, 0, 65535, 14, 0, 0, 14, 0, 1, 14, 0, 2, 14, 0, 3, 14, 0, 4, 14, 0, 5, 14, 0, 6, 14, 0, 7, 14, 0, 8, 14, 0, 9, 14, 0, 10, 14, 0, 11, 14, 0, 12, 14, 0, 13, 14, 0, 14, 14, 0, 7, 65525, 1, 7, 65526, 1, 7, 65527, 1, 7, 65528, 1, 7, 65529, 1, 3, 65529, 1, 2, 65529, 1, 65526, 65522, 1, 65526, 65523, 1, 65526, 65528, 1, 65526, 65529, 1, 65526, 65530, 1, 65527, 65530, 1, 65528, 65530, 1, 65529, 65530, 1, 65524, 1, 1, 65525, 1, 1, 65526, 1, 1, 65526, 65531, 1, 65526, 65532, 1, 65526, 65533, 1, 65534, 65522, 1, 65534, 65525, 1, 65534, 65526, 1, 65534, 65527, 1, 65534, 65528, 1, 65534, 65529, 1, 65535, 65525, 1, 0, 65525, 1, 1, 65525, 1, 2, 65525, 1, 3, 65525, 1, 4, 65525, 1, 65535, 65533, 1, 0, 65533, 1, 1, 65533, 1, 2, 65533, 1, 3, 65533, 1, 65534, 65530, 1, 65531, 65533, 1, 65531, 65534, 1, 65531, 65535, 1, 65522, 8, 1, 65523, 8, 1, 65524, 8, 1, 65528, 5, 1, 65529, 5, 1, 65530, 5, 1, 65530, 6, 1, 4, 65532, 1, 4, 65533, 1, 4, 65534, 1, 4, 65535, 1, 8, 65529, 1, 9, 65529, 1, 10, 65529, 1, 11, 65529, 1, 9, 65530, 1, 9, 65531, 1, 9, 65533, 1, 9, 65534, 1, 10, 65534, 1, 4, 11, 1, 4, 10, 1, 4, 8, 1, 6, 7, 1, 7, 7, 1, 8, 7, 1, 65525, 11, 1, 65526, 11, 1, 4, 9, 1, 65534, 9, 1, 65535, 9, 1, 0, 9, 1, 65530, 7, 1, 65530, 8, 1, 10, 10, 1, 10, 11, 1, 65521, 65527, 0, 65521, 65526, 0, 65521, 65525, 0, 13, 3, 1, 12, 3, 1, 11, 3, 1, 9, 3, 1, 8, 3, 1, 9, 65532, 1, 65526, 65524, 1, 65534, 10, 1, 65534, 11, 1, 65524, 2, 1, 65524, 3, 1, 65524, 4, 1, 65524, 5, 1, 65525, 65531, 1, 65524, 65531, 1, 65533, 65526, 1, 65530, 65526, 1, 65532, 65526, 1, 65531, 65526, 1, 2, 4, 1, 2, 3, 1, 11, 65534, 1, 9, 65535, 1, 10, 3, 1, 65531, 0, 1, 65531, 1, 1, 65530, 1, 1, 65529, 1, 1, 65528, 11, 1, 65530, 11, 1, 65529, 11, 1, 65527, 11, 1, 2, 2, 1, 8, 2, 1, 9, 10, 1, 5, 7, 1, 8, 10, 1, 4, 7, 1, 1, 4, 1, 65535, 4, 1, 0, 4, 1, 65535, 5, 1, 65531, 6, 1, 3, 2, 1, 65530, 2, 1, 3, 11, 1, 65527, 10, 1, 5, 6, 1)
+"cells": PackedInt32Array(14, 65521, 0, 13, 65521, 0, 12, 65521, 0, 11, 65521, 0, 9, 65521, 0, 10, 65521, 0, 7, 65521, 0, 8, 65521, 0, 65523, 65521, 0, 65524, 65521, 0, 65526, 65521, 0, 65527, 65521, 0, 65528, 65521, 0, 65529, 65521, 0, 65530, 65521, 0, 65531, 65521, 0, 65532, 65521, 0, 65533, 65521, 0, 65534, 65521, 0, 65535, 65521, 0, 0, 65521, 0, 1, 65521, 0, 2, 65521, 0, 3, 65521, 0, 4, 65521, 0, 5, 65521, 0, 6, 65521, 0, 14, 65525, 0, 14, 65524, 0, 14, 65523, 0, 14, 65522, 0, 14, 13, 0, 14, 12, 0, 14, 11, 0, 14, 10, 0, 14, 9, 0, 14, 8, 0, 14, 7, 0, 14, 6, 0, 14, 5, 0, 14, 4, 0, 14, 3, 0, 14, 2, 0, 14, 1, 0, 14, 0, 0, 14, 65535, 0, 14, 65534, 0, 14, 65533, 0, 14, 65532, 0, 14, 65531, 0, 14, 65530, 0, 14, 65529, 0, 14, 65528, 0, 14, 65527, 0, 14, 65526, 0, 65525, 65521, 0, 65522, 65521, 0, 65521, 65521, 0, 65521, 65522, 0, 65521, 65523, 0, 65521, 65524, 0, 65521, 65528, 0, 65521, 65529, 0, 65521, 65530, 0, 65521, 65531, 0, 65521, 65532, 0, 65521, 65533, 0, 65521, 65534, 0, 65521, 65535, 0, 65521, 0, 0, 65521, 1, 0, 65521, 2, 0, 65521, 3, 0, 65521, 4, 0, 65521, 5, 0, 65521, 6, 0, 65521, 7, 0, 65521, 8, 0, 65521, 9, 0, 65521, 10, 0, 65521, 11, 0, 65521, 12, 0, 65521, 13, 0, 65521, 14, 0, 65522, 14, 0, 65523, 14, 0, 65524, 14, 0, 65525, 14, 0, 65526, 14, 0, 65527, 14, 0, 65528, 14, 0, 65529, 14, 0, 65530, 14, 0, 65531, 14, 0, 65532, 14, 0, 65533, 14, 0, 65534, 14, 0, 65535, 14, 0, 0, 14, 0, 1, 14, 0, 2, 14, 0, 3, 14, 0, 4, 14, 0, 5, 14, 0, 6, 14, 0, 7, 14, 0, 8, 14, 0, 9, 14, 0, 10, 14, 0, 11, 14, 0, 12, 14, 0, 13, 14, 0, 14, 14, 0, 7, 65525, 1, 7, 65526, 1, 7, 65527, 1, 7, 65528, 1, 7, 65529, 1, 2, 65529, 1, 65526, 65522, 1, 65526, 65523, 1, 65526, 65528, 1, 65526, 65529, 1, 65526, 65530, 1, 65527, 65530, 1, 65524, 1, 1, 65525, 1, 1, 65526, 1, 1, 65526, 65531, 1, 65526, 65532, 1, 65526, 65533, 1, 65534, 65522, 1, 65534, 65525, 1, 65534, 65526, 1, 65534, 65527, 1, 65534, 65528, 1, 65534, 65529, 1, 65535, 65525, 1, 0, 65525, 1, 1, 65525, 1, 2, 65525, 1, 3, 65525, 1, 4, 65525, 1, 65535, 65533, 1, 0, 65533, 1, 1, 65533, 1, 2, 65533, 1, 3, 65533, 1, 65534, 65530, 1, 65531, 65533, 1, 65531, 65534, 1, 65531, 65535, 1, 65522, 8, 1, 65523, 8, 1, 65524, 8, 1, 65528, 5, 1, 65529, 5, 1, 65530, 5, 1, 65530, 6, 1, 4, 65533, 1, 4, 65534, 1, 8, 65529, 1, 9, 65529, 1, 10, 65529, 1, 11, 65529, 1, 9, 65530, 1, 9, 65531, 1, 9, 65533, 1, 9, 65534, 1, 10, 65534, 1, 4, 11, 1, 4, 10, 1, 4, 8, 1, 6, 7, 1, 7, 7, 1, 8, 7, 1, 65525, 11, 1, 65526, 11, 1, 4, 9, 1, 65534, 9, 1, 65535, 9, 1, 0, 9, 1, 65530, 7, 1, 10, 10, 1, 10, 11, 1, 65521, 65527, 0, 65521, 65526, 0, 65521, 65525, 0, 13, 3, 1, 12, 3, 1, 11, 3, 1, 9, 3, 1, 8, 3, 1, 9, 65532, 1, 65526, 65524, 1, 65534, 10, 1, 65534, 11, 1, 65524, 2, 1, 65524, 3, 1, 65525, 65531, 1, 65524, 65531, 1, 65533, 65526, 1, 65530, 65526, 1, 65532, 65526, 1, 65531, 65526, 1, 2, 4, 1, 2, 3, 1, 11, 65534, 1, 10, 3, 1, 65531, 0, 1, 65531, 1, 1, 65528, 11, 1, 65530, 11, 1, 65529, 11, 1, 65527, 11, 1, 8, 2, 1, 9, 10, 1, 5, 7, 1, 8, 10, 1, 4, 7, 1, 1, 4, 1, 65535, 4, 1, 0, 4, 1, 65535, 5, 1, 3, 11, 1, 5, 6, 1, 4, 65532, 1, 65527, 5, 1, 65530, 8, 1, 65534, 12, 1, 65534, 13, 1, 65535, 6, 1, 65531, 65532, 1, 65523, 65531, 1, 65522, 65531, 1, 65524, 4, 1, 65523, 1, 1, 65522, 1, 1, 10, 12, 1, 10, 13, 1, 3, 3, 1, 3, 2, 1, 3, 65529, 1, 3, 65528, 1, 4, 65528, 1, 5, 65528, 1, 6, 65528, 1, 8, 65534, 1, 65532, 1, 1, 65533, 1, 1)
 }
-metadata/_editor_floor_ = Vector3(0, 1, 0)
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.0866167, 0.257846, -0.962296, -0.996242, -0.0224181, 0.0836653, 0, 0.965926, 0.258819, 0.0800896, 11.4919, -0.359151)
@@ -210,5 +215,104 @@ libraries = {
 }
 autoplay = "enemy2animation"
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(1051, 102)
+scale = Vector2(0.248, 0.266)
+texture = ExtResource("9_3o0jp")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1121.0
+offset_top = 48.0
+offset_right = 1164.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0.545098, 0.756863, 0, 1)
+theme_override_fonts/font = ExtResource("10_2sw0h")
+theme_override_font_sizes/font_size = 60
+text = "x"
+
+[node name="Counter" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1183.0
+offset_top = 46.0
+offset_right = 1240.0
+offset_bottom = 197.0
+theme_override_colors/font_color = Color(0.521569, 0.443137, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "Q"
+script = ExtResource("12_vau8x")
+
+[node name="Coins" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 0)
+
+[node name="coin_holder" type="Node3D" parent="Coins"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.21769, 0, -5.68535)
+
+[node name="coin" parent="Coins/coin_holder" instance=ExtResource("8_qq0ot")]
+script = ExtResource("9_lnopm")
+
+[node name="coin_holder2" type="Node3D" parent="Coins"]
+
+[node name="coin" parent="Coins/coin_holder2" instance=ExtResource("8_qq0ot")]
+script = ExtResource("9_lnopm")
+
+[node name="coin_holder3" type="Node3D" parent="Coins"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1272, 0, -10.2533)
+
+[node name="coin" parent="Coins/coin_holder3" instance=ExtResource("8_qq0ot")]
+script = ExtResource("9_lnopm")
+
+[node name="coin_holder4" type="Node3D" parent="Coins"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.16921, 0, 6.93532)
+
+[node name="coin" parent="Coins/coin_holder4" instance=ExtResource("8_qq0ot")]
+script = ExtResource("9_lnopm")
+
+[node name="coin_holder5" type="Node3D" parent="Coins"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4835, 0, 8.83043)
+
+[node name="coin" parent="Coins/coin_holder5" instance=ExtResource("8_qq0ot")]
+script = ExtResource("9_lnopm")
+
+[node name="coin_holder6" type="Node3D" parent="Coins"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2191, 0, -8.06031)
+
+[node name="coin" parent="Coins/coin_holder6" instance=ExtResource("8_qq0ot")]
+script = ExtResource("9_lnopm")
+
+[node name="coin_holder7" type="Node3D" parent="Coins"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.921, 0, -10.3739)
+
+[node name="coin" parent="Coins/coin_holder7" instance=ExtResource("8_qq0ot")]
+script = ExtResource("9_lnopm")
+
+[node name="coin_holder8" type="Node3D" parent="Coins"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2489, 0, 0.447794)
+
+[node name="coin" parent="Coins/coin_holder8" instance=ExtResource("8_qq0ot")]
+script = ExtResource("9_lnopm")
+
 [connection signal="body_entered" from="enemy1" to="Steve" method="_on_enemy_body_entered"]
 [connection signal="body_entered" from="enemy2" to="Steve" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Coins/coin_holder/coin" to="Coins/coin_holder/coin" method="_on_body_entered"]
+[connection signal="child_exiting_tree" from="Coins/coin_holder/coin" to="Control/Counter" method="_on_coin_child_exiting_tree"]
+[connection signal="body_entered" from="Coins/coin_holder2/coin" to="Coins/coin_holder2/coin" method="_on_body_entered"]
+[connection signal="child_exiting_tree" from="Coins/coin_holder2/coin" to="Control/Counter" method="_on_coin_child_exiting_tree"]
+[connection signal="body_entered" from="Coins/coin_holder3/coin" to="Coins/coin_holder3/coin" method="_on_body_entered"]
+[connection signal="child_exiting_tree" from="Coins/coin_holder3/coin" to="Control/Counter" method="_on_coin_child_exiting_tree"]
+[connection signal="body_entered" from="Coins/coin_holder4/coin" to="Coins/coin_holder4/coin" method="_on_body_entered"]
+[connection signal="child_exiting_tree" from="Coins/coin_holder4/coin" to="Control/Counter" method="_on_coin_child_exiting_tree"]
+[connection signal="body_entered" from="Coins/coin_holder5/coin" to="Coins/coin_holder5/coin" method="_on_body_entered"]
+[connection signal="child_exiting_tree" from="Coins/coin_holder5/coin" to="Control/Counter" method="_on_coin_child_exiting_tree"]
+[connection signal="body_entered" from="Coins/coin_holder6/coin" to="Coins/coin_holder6/coin" method="_on_body_entered"]
+[connection signal="child_exiting_tree" from="Coins/coin_holder6/coin" to="Control/Counter" method="_on_coin_child_exiting_tree"]
+[connection signal="body_entered" from="Coins/coin_holder7/coin" to="Coins/coin_holder7/coin" method="_on_body_entered"]
+[connection signal="child_exiting_tree" from="Coins/coin_holder7/coin" to="Control/Counter" method="_on_coin_child_exiting_tree"]
+[connection signal="body_entered" from="Coins/coin_holder8/coin" to="Coins/coin_holder8/coin" method="_on_body_entered"]
+[connection signal="child_exiting_tree" from="Coins/coin_holder8/coin" to="Control/Counter" method="_on_coin_child_exiting_tree"]

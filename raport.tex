@@ -79,7 +79,7 @@
 	W ramach tutorialu z YouTube stworzyłem prostą grę 3D, w której gracz porusza kulą po planszy. Proces tworzenia był podobny
 	do tego w przypadku gry 2D, jednakże z różnicami wynikającymi z wprowadzenia trzeciego wymiaru.
 	Tutaj także pozwoliłem sobie na drobne modyfikacje wzorca z tutorialu. Zmieniłem tekstury, w tym podłogi głównej sceny, tło i cieniowanie.
-	Zmieniłem także wygląd ekranu startowego oraz "game over".
+	Zmieniłem także wygląd ekranu startowego, wygranej oraz "game over". Użyto customowych czcionek.
 	\begin{center}
 		\begin{figure}[htb]
 			\centering
@@ -91,7 +91,32 @@
 			\includegraphics[width=1\textwidth]{3d/progress1.png}
 			\caption{Progress 1 - gracz i nałożona gridmapa}
 		\end{figure}
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[width=1\textwidth]{3d/coin-collision.png}
+			\caption{Praca nad określeniem granic kolizji dla monet}
+		\end{figure}
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[width=1\textwidth]{3d/coin1_collected.png}
+			\caption{Implementacja zbierania monet}
+		\end{figure}
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[width=1\textwidth]{3d/complete1.png}
+			\caption{Widok na gotową główną scenę gry}
+		\end{figure}
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[width=1\textwidth]{3d/win_screen.png}
+			\caption{Ekran "win"}
+		\end{figure}
 	\end{center}
+	\clearpage
+	\section[htb]{Podsumowanie}
+	Przeanalizowano sposoby realizacji gier 2D i 3D w środowisku Godot. Zwrócono uwagę na różnice pomiędzy
+	mechanizmami przedstawionymi w tutorialu a tymi w najnowszej wersji narzędzia; opracowano własne sposoby
+	rozwiązania własnych problemów, w tym łączenia sygnałów.
 \end{sloppypar}
 
 \end{document}

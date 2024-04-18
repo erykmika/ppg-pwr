@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1yv077ubfk86"]
+
+[ext_resource type="FontFile" uid="uid://8wdvylj7r28m" path="res://assets/Starjedi.ttf" id="1_8bgt2"]
+[ext_resource type="Script" path="res://win.gd" id="1_mfbdd"]
+
+[sub_resource type="Theme" id="Theme_rhg3q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23j4r"]
+
+[node name="win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mfbdd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1278.0
+offset_bottom = 720.0
+color = Color(0.168627, 0.772549, 0.505882, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 298.0
+offset_right = 1276.0
+offset_bottom = 413.0
+theme_override_fonts/font = ExtResource("1_8bgt2")
+theme_override_font_sizes/font_size = 72
+text = "Wygrana!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_top = 496.0
+offset_right = 1276.0
+offset_bottom = 583.0
+theme = SubResource("Theme_rhg3q")
+theme_override_colors/font_hover_color = Color(0.364706, 0.596078, 0, 1)
+theme_override_fonts/font = ExtResource("1_8bgt2")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/normal = SubResource("StyleBoxEmpty_23j4r")
+text = "Graj znowu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
